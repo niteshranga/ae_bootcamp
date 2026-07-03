@@ -1,4 +1,5 @@
 with source as (
     select * from {{ source('northwind','shippers') }}
 )
-select * from source
+select *, {{get_ingestion_timestamp()}} 
+ from source   
